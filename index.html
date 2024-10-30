@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Document Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border-radius: 8px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            font-size: 16px;
+            color: white;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const allowedPasswords = ["Bisheline", "Njousi", "Rohit"];
+            if (allowedPasswords.includes(password)) {
+                window.location.href = "https://docs.google.com/document/d/1T_Prhf54THbKlzQfEirCPYo-ESYbdcRnw9csQcUixpM/edit?usp=sharing";
+            } else {
+                document.getElementById("error").innerText = "Incorrect password. Please try again.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Access Protected Document</h2>
+        <p>Please enter the password to view the document:</p>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error" class="error"></p>
+    </div>
+</body>
+</html>
